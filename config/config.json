@@ -2,25 +2,22 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "sw_express_development",
+    "database": "sw-express_development",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": null,
-    "database": "sw_express_test",
+    "database": "sw-express_test",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": null,
-    "database": "sw_express_production",
+    "database": "sw-express_production",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   }
 }
