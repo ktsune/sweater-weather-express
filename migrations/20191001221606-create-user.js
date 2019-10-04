@@ -14,7 +14,7 @@ module.exports = {
       apiKey: {
         type: Sequelize.STRING
       },
-      passwordDigest: {
+      password: {
         type: Sequelize.STRING
       },
       createdAt: {
