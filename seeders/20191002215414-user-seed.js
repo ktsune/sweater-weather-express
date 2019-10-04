@@ -6,28 +6,28 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [{
       email: 'felix@gmail.com.',
       apiKey: '12345',
-      passwordDigest: 'password',
+      password: 'password',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       email: 'glynni@gmail.com.',
       apiKey: '23456',
-      passwordDigest: 'password',
+      password: 'password',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       email: 'sarah@gmail.com.',
       apiKey: '23458',
-      passwordDigest: 'password',
+      password: 'password',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       email: 'tay@gmail.com.',
       apiKey: '23459',
-      passwordDigest: 'password',
+      password: 'password',
       createdAt: new Date(),
       updatedAt: new Date()
     }
