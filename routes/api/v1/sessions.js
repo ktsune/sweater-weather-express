@@ -7,6 +7,9 @@ var pry = require('pryjs')
 router.post("/", function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
 
+  console.log(req.body.email)
+  console.log(req.body.password)
+
   if (!req.body.email || !req.body.password) {
     res.status(400).send({ error: "Email invalid" });
   } else {
@@ -15,24 +18,17 @@ router.post("/", function(req, res, next) {
         email: req.body.email
       }
     })
-    console.log(req.body.email)
-
     .then(user => {
-      if (user) {
-        if (bcrypt.compareSync(req.body.password, user.passwordDigest)) {
+        if (user && bcrypt.compareSync(req.body.password, user.password)) {
           res.status(200).send(JSON.stringify({
             apiKey: user.apiKey
           }));
         } else {
           res.status(401).send({ error: "Please re-enter your username & password" });
         }
-
-      } else {
-        res.status(422).send({ error: "Please re-enter your username & password" });
-      }
     })}
-  }
-);
+});
+
 
 
 module.exports = router;
