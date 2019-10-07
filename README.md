@@ -19,9 +19,9 @@ https://limitless-lowlands-17860.herokuapp.com/
 - Change the username fields for test, development, and production environments to your own postgres username
 
 4) Set up the database:
-  1. $ npx sequelize db:create (need to change username in config.json?)
-  2. $ npx sequelize db:migrate
-  3. $ npx sequelize db:seed:all
+- $ npx sequelize db:create (need to change username in config.json?)
+- $ npx sequelize db:migrate
+- $ npx sequelize db:seed:all
 
 5) Add a .env file to your root directory to save your API keys in
 
