@@ -22,9 +22,9 @@ https://limitless-lowlands-17860.herokuapp.com/
 
 5) Add a .env file to your root directory to save your API keys in
 
-  **Note, you will need your own Google Geocoding & Dark Sky API keys for the external API's in this project**
+- **Note, you will need your own Google Geocoding & Dark Sky API keys for the external API's in this project**
 
-  a) Here is the format they should be in in your .env file:
+6) Here is the format they should be in in your .env file:
 
     GOOGLE_GEOCODING_API_KEY=<YOUR GOOGLE MAPS API KEY>
     DARK_SKY_API_KEY=<YOUR DARK SKY API KEY>
@@ -102,6 +102,7 @@ body:
 {
   "api_key": "jgn983hy48thw9begh98h4539h4"
 }
+
 ```
 
 Response:
@@ -175,6 +176,124 @@ Response:
 }
 ```
 
+### User Can Add a Favorite Location to their Favorite's List
+
+Request:
+
+```
+POST /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "location": "Denver, CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+
+```
+
+Response:
+
+```
+status: 200
+body:
+
+{
+  "message": "Denver, CO has been added to your favorites",
+}
+
+```
+### User Can List Out Their Favorite Locations
+
+Requirements:
+
+- API key must be sent
+- If no API key or an incorrect key is provided return 401 (Unauthorized)
+
+Request:
+
+```
+GET /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+
+```
+
+Response:
+
+```
+status: 200
+body:
+[
+  {
+    "location": "Denver, CO",
+    "current_weather": {
+      "summary": "Overcast",
+      "icon": "cloudy",
+      "precipIntensity": 0,
+      "precipProbability": 0,
+      "temperature": 54.91,
+      "humidity": 0.65,
+      "pressure": 1020.51,
+      "windSpeed": 11.91,
+      "windGust": 23.39,
+      "windBearing": 294,
+      "cloudCover": 1,
+      "visibility": 9.12,
+    },
+    "location": "Golden, CO",
+    "current_weather": {
+      "summary": "Sunny",
+      "icon": "sunny",
+      "precipIntensity": 0,
+      "precipProbability": 0,
+      "temperature": 71.00,
+      "humidity": 0.50,
+      "pressure": 1015.10,
+      "windSpeed": 10.16,
+      "windGust": 13.40,
+      "windBearing": 200,
+      "cloudCover": 0,
+      "visibility": 8.11,
+    }
+  }
+]
+
+```
+### User Can Remove a Favorite Location from their Favorite's List
+
+Request:
+
+```
+DELETE /api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "location": "Denver, CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+
+```
+
+Response:
+
+```
+status: 204
+
+```
+
+
 ## Known Issues
 
 The forecast endpoint to retrieve a weather forecast returns additional weather objects beyond the 8 hourly weather objects & 7 daily weather objects as specified in the spec
@@ -204,6 +323,8 @@ and click on `New Pull Request`
 
 ## Schema Design
 
+<a href="https://cl.ly/cc761a767581" target="_blank"><img src="https://dzwonsemrish7.cloudfront.net/items/0B313i0k0M1u3E3h293Y/Screen%20Shot%202019-10-06%20at%2010.44.32%20PM.png" style="display: block;height: auto;width: 100%;"/></a>
+
 ## Tech Stack List
 
  - Node
@@ -211,4 +332,4 @@ and click on `New Pull Request`
  - Shelljs
  - Bcrypt
  - Uuidv4
- - Node-fetch 
+ - Node-fetch
