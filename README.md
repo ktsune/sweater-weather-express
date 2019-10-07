@@ -29,8 +29,10 @@ https://limitless-lowlands-17860.herokuapp.com/
 
 6) Here is the format they should be in in your .env file:
 
-    GOOGLE_GEOCODING_API_KEY=<YOUR GOOGLE MAPS API KEY>
-    DARK_SKY_API_KEY=<YOUR DARK SKY API KEY>
+```
+GOOGLE_GEOCODING_API_KEY=<YOUR GOOGLE MAPS API KEY>
+DARK_SKY_API_KEY=<YOUR DARK SKY API KEY>
+```
 
 ## How to use
 
