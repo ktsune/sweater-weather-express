@@ -13,10 +13,6 @@ router.post("/", function(req, res, next) {
     return res.status(401).send({ error: "Missing API Key" });
   }
 
-  if (!req.body.location) {
-    return res.status(401).send({ error: "Valid location required" });
-  }
-
   user.findOne({
     where: { apiKey: req.body.apiKey }
   })
@@ -84,5 +80,34 @@ router.get("/", function(req, res, next) {
 
 /* DELETE removes a favorite from user's favorites list */
 
+router.delete("/", function(req, res, next) {
+  res.setHeader("Content-Type", "application/json");
+  let city = req.body.location
+
+  if (!req.body.apiKey) {
+    return res.status(401).send({ error: "Missing API Key" });
+  }
+
+  user.findOne({
+    where: { apiKey: req.body.apiKey }
+  })
+  .then(user => {
+    if (!user) {
+      return res.status(401).send({ error: "Missing API Key" });
+    }
+      return Favorites.destroy({
+        where: {
+          location: city,
+          UserId: user.id
+        }
+      })
+      .then(favorite => {
+        res.status(204).send()
+      })
+    .catch(error => {
+      res.status(500).send({ error: error });
+    })
+  });
+})
 
 module.exports = router;
