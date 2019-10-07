@@ -9,7 +9,7 @@ router.get("/", function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
 
   if (!req.body.apiKey) {
-    return res.status(401).send({ error: "Invalid API Key" });
+    return res.status(401).send({ error: "Valid api key required" });
   }
 
   user.findOne({
