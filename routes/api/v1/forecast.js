@@ -5,8 +5,10 @@ var geocode = require('../../../services/darksky.service.js').GeocodeService
 var darkSky = require('../../../services/geocode.service.js').DarkSkyService
 var user = require('../../../models').User
 
+/* GET weather forecast for a user */
 router.get("/", function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
+  // weather = {}
 
   if (!req.body.apiKey) {
     return res.status(401).send({ error: "Invalid API Key" });
