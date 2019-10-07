@@ -108,9 +108,37 @@ describe('api', () => {
          })
        })
          .then(response => {
-
            expect.assertions(1);
            expect(response.statusCode).toBe(200)
+         })
+        })
+      })
+
+  describe('Test user can send in an api key & location to delete a location from their favorites',  () => {
+    test('should return a 200', async () => {
+      let location = 'Denver, CO'
+
+      await user.create({
+         email: 'whatever@gmail.com',
+         password: 'password',
+         apiKey: '12345'
+       })
+       .then(user => {
+         return Favorite.create({
+           UserId: user.id,
+           location: location
+         })
+       })
+       .then(favorite => {
+         return request(app).delete("/api/v1/favorites")
+         .send({
+           "apiKey": '12345',
+           "location": location
+         })
+       })
+         .then(response => {
+           expect.assertions(1);
+           expect(response.statusCode).toBe(204)
          })
         })
       })
