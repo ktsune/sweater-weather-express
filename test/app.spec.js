@@ -3,7 +3,6 @@ var request = require("supertest");
 var app = require('../app');
 var pry = require('pryjs');
 var user = require('../models').User;
-var favorite = require('../models').Favorite;
 
 describe('api', () => {
   beforeAll(() => {
@@ -88,34 +87,4 @@ describe('api', () => {
         })
       })
     });
-
-  describe('Test user can send in an api key & location to add a location to their favorites',  () => {
-    test('should return a 200', async () => {
-      let location = 'Denver, CO'
-      console.log('BEFORE CREATION')
-
-      await user.create({
-         email: 'whatever@gmail.com',
-         password: 'password',
-         apiKey: '12345'
-       })
-
-       .then(user => {
-         return request(app).post("/api/v1/favorites")
-         .send({
-           "apiKey": '12345',
-           "location": 'Denver, CO'
-         })
-       })
-         .then(response => {
-
-           console.log('RESPONSE', response)
-
-           expect.assertions(1);
-           // expect(response.status).toBe(`message: ${req.body.location} has been added to your favorites`)
-           expect(response.statusCode).toBe(200)
-         })
-        })
-      })
-    });
-  // });
+  });

@@ -11,7 +11,6 @@ var usersRouter = require('./routes/users');
 var usersApiRouter = require('./routes/api/v1/users');
 var sessionsApiRouter = require('./routes/api/v1/sessions');
 var forecastApiRouter = require('./routes/api/v1/forecast');
-var favoritesApiRouter = require('./routes/api/v1/favorites');
 
 var app = express();
 
@@ -26,6 +25,5 @@ app.use('/users', usersRouter);
 app.use('/api/v1/users', usersApiRouter);
 app.use('/api/v1/sessions', sessionsApiRouter);
 app.use('/api/v1/forecast', forecastApiRouter);
-app.use('/api/v1/favorites', favoritesApiRouter);
 
 module.exports = app;
