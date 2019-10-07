@@ -2,6 +2,9 @@
 
 Sweater Weather Express re-writes the Sweater Weather project originally done in Ruby & Rails to a Node project using Express. You can find the repo for the original Ruby project here: https://github.com/ktsune/sweater-weather
 
+#### You can also view the project board here:
+https://github.com/ktsune/sweater-weather-express/projects/1
+
 ## Visit my app on Heroku
 https://limitless-lowlands-17860.herokuapp.com/
 
