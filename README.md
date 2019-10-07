@@ -8,6 +8,10 @@ https://github.com/ktsune/sweater-weather-express/projects/1
 ## Visit my app on Heroku
 https://limitless-lowlands-17860.herokuapp.com/
 
+## Schema Design
+
+<a href="https://cl.ly/cc761a767581" target="_blank"><img src="https://dzwonsemrish7.cloudfront.net/items/0B313i0k0M1u3E3h293Y/Screen%20Shot%202019-10-06%20at%2010.44.32%20PM.png" style="display: block;height: auto;width: 100%;"/></a>
+
 ## Initial Setup
 1) Clone the repo:
 - $ git clone git@github.com:ktsune/express_sweater_weather.git
@@ -325,10 +329,6 @@ and click on `New Pull Request`
 
 ## Contributors
 - Sarah Tatro
-
-## Schema Design
-
-<a href="https://cl.ly/cc761a767581" target="_blank"><img src="https://dzwonsemrish7.cloudfront.net/items/0B313i0k0M1u3E3h293Y/Screen%20Shot%202019-10-06%20at%2010.44.32%20PM.png" style="display: block;height: auto;width: 100%;"/></a>
 
 ## Tech Stack List
 
