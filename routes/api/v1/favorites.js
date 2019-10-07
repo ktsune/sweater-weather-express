@@ -12,6 +12,10 @@ router.post("/", function(req, res, next) {
     return res.status(401).send({ error: "Missing API Key" });
   }
 
+  if (!req.body.location) {
+    return res.status(401).send({ error: "Valid location required" });
+  }
+
   user.findOne({
     where: { apiKey: req.body.apiKey }
   })
