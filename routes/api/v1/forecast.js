@@ -11,7 +11,7 @@ router.get("/", function(req, res, next) {
   // weather = {}
 
   if (!req.body.apiKey) {
-    return res.status(401).send({ error: "Invalid API Key" });
+    return res.status(401).send({ error: "Valid api key required" });
   }
 
   user.findOne({
