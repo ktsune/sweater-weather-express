@@ -57,19 +57,31 @@ router.get("/", function(req, res, next) {
     })
 
     .then(responseFav => {
-      responseFav.forEach(function(item) {
-        userFav.push({"location": item.location})
-      })
-      fetch(`localhost:3000/api/v1/forecast?location=Denver,CO`)
-      .then(responseForecast => {
-        userFav.push({"currently": responseForecast.currently})
-      })
+      
+      console.log('FAV RESPONSE', responseFav)
 
-      payload = [{
-        data: userFav
-      }]
-      return res.status(200).send(payload)
+      responseFav.forEach(function(item) {
+        let city = item.location
+        userFav.push({"location": item.location})
+
+        let response = fetch(`https://api.darksky.net/forecast/${process.env.DARKSKY}/39.7392358,-104.990251"`)
+        // let response = fetch(`https://api.darksky.net/forecast/${process.env.DARKSKY}/${city.lat},${city.long}`)
+
+        let results = response.json()
+      // .then(responseForecast => {
+      //   userFav.push({"currently": responseForecast.currently})
+
+        let payload = [{
+          weather: results.currently,
+          location: userFav
+        }]
+        console.log('PAYLOAD', payload)
+        return results
+
+        .then(payload => res.status(200).send(payload))
+       })
       })
+      // })
     })
 
   .catch(error => {
