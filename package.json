@@ -15,7 +15,7 @@
     "express": "~4.16.1",
     "express-session": "^1.16.2",
     "json-schema-editor-visual": "^1.0.22",
-    "mocha": "^6.2.1",
+    "mocha": "^10.2.0",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^1.19.3",
